@@ -26,4 +26,10 @@ sequenceDiagram
     server -->> browser : The HTML document with the updated json file
     deactivate server
 
+    browser -->> server : POST [{ "content": {Text Input}, "date": Date()}]
+    activate server
+    server -->> browser : GET https://studies.cs.helsinki.fi/exampleapp/spa
+    deactivate server
+
     Note right of browser: The browser executes the callback function that renders the notes with addition to the new notes added
+```
