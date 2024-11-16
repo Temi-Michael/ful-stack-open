@@ -1,19 +1,19 @@
 export default function Content(prop) {
     const Part1 = () => {
         return (
-            <p>{prop.part1} {prop.exercises1}</p>
+            <p>{prop.part.parts[0].name} {prop.part.parts[0].exercises}</p>
         )
     }
 
     const Part2 = () => {
         return (
-            <p>{prop.part2} {prop.exercises2}</p>
+            <p>{prop.part.parts[1].name} {prop.part.parts[1].exercises}</p>
         )
     }
 
     const Part3 = () => {
         return (
-            <p>{prop.part3} {prop.exercises3}</p>
+            <p>{prop.part.parts[2].name} {prop.part.parts[2].exercises}</p>
         )
     }
     return (
