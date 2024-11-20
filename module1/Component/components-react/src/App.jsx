@@ -1,26 +1,32 @@
-const Hello = ({name, age}) => {
+import { useState } from "react"
+import Display from "./Display";
+import Button from "./Button";
 
-  const bornYear = () => new Date().getFullYear() - age
+const App = () => {
 
+  const [counter, setCounter] = useState(0);
+  console.log(`rendering with counter value, ${counter}`)
+
+  const increaseByOne = () => {
+    setCounter(counter + 1),
+    console.log(`increasing value before ${counter}`)
+  };
+
+  const decreaseByOne = () => {
+    setCounter(counter - 1),
+    console.log(`decreasing value before ${counter}`)
+  };
+
+  const setToZero = () => {
+    setCounter(0),
+    console.log(`resetting to zero ,value before ${counter}`)
+  };
   return (
     <div>
-
-      <p>Hello {name}, you are {age} years old</p>
-      <p>So you were probably born in {bornYear()}</p>
-    </div>
-  )
-}
-
-function App() {
-
-  const name = 'Peter'
-  const age = 10
-
-  return (
-    <div>
-      <h1>Greetings</h1>
-      <Hello name="Maya" age={26 + 10} />
-      <Hello name={name} age={age} />
+      <Display counter={counter} />
+      <Button onClick={increaseByOne} text="Plus" />
+      <Button onClick={decreaseByOne} text="Minus" />
+      <Button onClick={setToZero} text="Zero" />
     </div>
   )
 }
